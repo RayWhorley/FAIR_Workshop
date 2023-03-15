@@ -41,6 +41,8 @@ def getscidata(subid, refid):
         if 'pKA' in datum.pka_type:
             dpnt.update({'dctype#': "cheminf:CHEMINF_000194"})
         dpnt.update({'value': datum.pka_value})
+        if datum.temp is not None:
+            dpnts.update({'temperature': datum.temp})
         dpnts.append(dpnt)
     dcjld.datapoint(dpnts)
 
